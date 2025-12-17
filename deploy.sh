@@ -35,6 +35,7 @@ else
 fi
 
 echo "Building frontend..."
+export ASTRO_TELEMETRY_DISABLED=1
 pnpm build
 cd "$ROOT"
 
