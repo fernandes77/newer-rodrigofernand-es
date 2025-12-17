@@ -1,0 +1,172 @@
+---
+import "@fontsource/source-serif-4/300.css";
+import CriticalStyles from "../components/CriticalStyles.astro";
+import { ViewTransitions } from "astro:transitions";
+
+interface Props {
+  metadata: { title: string; description: string };
+}
+const { metadata } = Astro.props;
+
+const getCanonical = (): string => {
+  const site = "https://rodrigofernand.es";
+  const path = String(Astro.url.pathname);
+  const url = String(new URL(path, site));
+  return url;
+};
+---
+
+<html lang="en" transition:animate="none">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <meta name="generator" content={Astro.generator} />
+
+    <link rel="manifest" href="/img/site.webmanifest" />
+
+    <title>{metadata.title}</title>
+    <meta name="description" content={metadata.description} />
+    <meta name="author" content="Rodrigo Fernandes" />
+    <link rel="canonical" href={getCanonical()} />
+
+    <ViewTransitions />
+    <CriticalStyles />
+
+    <slot name="head" />
+  </head>
+
+  <body>
+    <div class="main">
+      <slot />
+      <div class="footer">
+        <slot name="footer" />
+      </div>
+    </div>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --text-300: #e2e8f0;
+    --green-lighter: #3eddbb;
+    --green-light: #32b498;
+    --green-dark: #278e78;
+    --green-darkest: #217764;
+    --link: #32b498;
+    --link-hover: #3eddbb;
+    --link-active: #278e78;
+    --border: #4a5568;
+    --selection: #3eddbb53;
+    --gradient-dark-x: linear-gradient(90deg, #27303f 0%, #2d3748 100%);
+    --gradient-dark-y: linear-gradient(0, #27303f 0%, #2d3748 100%);
+    --p-top: 3rem;
+    --p-bottom: 3rem;
+  }
+
+  body {
+    font-size: 1.25rem;
+    margin: 0;
+  }
+
+  .main {
+    padding: var(--p-top) 1rem var(--p-bottom);
+    max-width: 70ch;
+    margin: auto;
+    min-height: calc(100vh - var(--p-top) - var(--p-bottom));
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    /* Prevents scrollbar layout shift */
+    left: calc((100vw - 100%) / 2);
+  }
+
+  .footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+    margin-top: 2.4rem;
+  }
+
+  p,
+  ul,
+  ol {
+    margin: 0;
+    margin-top: 1.2rem;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    line-height: 1.1;
+  }
+
+  a {
+    color: var(--link);
+  }
+
+  a:hover {
+    color: var(--link-hover);
+  }
+
+  a:active {
+    color: var(--link-active);
+  }
+
+  input {
+    outline: none;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+
+  input[type="text"],
+  input[type="number"] {
+    height: 3rem;
+    background: var(--gradient-dark-y);
+    border: 1px solid var(--border);
+    border-radius: 99px;
+    padding: 0 1.6rem;
+    color: var(--text);
+    font-family: var(--font);
+    font-size: 1rem;
+  }
+
+  input::placeholder {
+    color: var(--text-300);
+    font-weight: 300;
+    font-family: var(--font);
+    font-size: 1rem;
+  }
+
+  input:focus {
+    border-color: var(--green-lighter);
+  }
+
+  ::-moz-selection,
+  ::selection {
+    background: var(--selection);
+  }
+</style>

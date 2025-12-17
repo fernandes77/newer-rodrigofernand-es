@@ -1,348 +1,71 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const metadata = {
+  title: "Home | Rodrigo Fernandes",
+  description:
+    "I am Rodrigo Fernandes and this is my webpage. Thanks for stopping by! It is a work in progress.",
+};
 ---
 
-<Layout title="Rodrigo Fernandes">
-  <main>
-    <div class="grain"></div>
-    
-    <div class="container">
-      <header>
-        <nav>
-          <span class="logo">rf</span>
-          <div class="nav-links">
-            <a href="#work">work</a>
-            <a href="#about">about</a>
-            <a href="#contact">contact</a>
-          </div>
-        </nav>
-      </header>
-
-      <section class="hero">
-        <div class="hero-content">
-          <h1>
-            <span class="line">Hello, I'm</span>
-            <span class="name">Rodrigo<br/>Fernandes</span>
-          </h1>
-          <p class="tagline">
-            Building things on the web.
-          </p>
-          <div class="cta">
-            <a href="#contact" class="btn-primary">Get in touch</a>
-            <a href="#work" class="btn-secondary">View work →</a>
-          </div>
-        </div>
-        
-        <div class="hero-visual">
-          <div class="orbit">
-            <div class="planet"></div>
-            <div class="ring ring-1"></div>
-            <div class="ring ring-2"></div>
-            <div class="ring ring-3"></div>
-          </div>
-        </div>
-      </section>
-
-      <footer>
-        <span class="status">
-          <span class="dot"></span>
-          Available for projects
-        </span>
-        <span class="year">© 2024</span>
-      </footer>
-    </div>
-  </main>
-</Layout>
+<BaseLayout metadata={metadata}>
+  <section>
+    <p>
+      I am Rodrigo Fernandes and this is my webpage. More <a href="/about/">about me</a>.
+    </p>
+  </section>
+  <section>
+    <h2>Projects</h2>
+    <ul>
+      <li>
+        <a href="https://tabelanutricional.rodrigofernand.es/">Tabela Nutricional</a>
+        <span>A big table of brazilian nutritional information</span>
+      </li>
+    </ul>
+  </section>
+  <section>
+    <h2>Posts</h2>
+    <ul>
+      <li>
+        <a href="/posts/why-this-site-is-so-simple/">Why this website is so simple</a>
+        <span>My thoughts on complexity on the web</span>
+      </li>
+    </ul>
+  </section>
+  <section>
+    <h2>Resources</h2>
+    <ul>
+      <li>
+        <a href="/pdf/resume.pdf" target="_blank">Resume</a>
+        <span>PDF</span>
+      </li>
+    </ul>
+  </section>
+  <section>
+    <h2>Find me at</h2>
+    <ul>
+      <li>
+        <a href="mailto:me@rodrigofernand.es">Email</a>
+        <span>I respond pretty quickly here</span>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/in/rodrigofernand-es/" target="_blank"
+          >LinkedIn</a
+        >
+        <span>Professional profile</span>
+      </li>
+      <li>
+        <a href="https://github.com/fernandes77" target="_blank">GitHub</a>
+        <span>Coding projects</span>
+      </li>
+    </ul>
+  </section>
+</BaseLayout>
 
 <style>
-  .grain {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    opacity: 0.03;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-    z-index: 1000;
-  }
-
-  main {
-    min-height: 100vh;
-    background: 
-      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(249, 115, 22, 0.15), transparent),
-      radial-gradient(ellipse 60% 40% at 80% 60%, rgba(249, 115, 22, 0.05), transparent),
-      var(--color-bg);
-  }
-
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-
-  /* Navigation */
-  nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 0;
-  }
-
-  .logo {
-    font-family: var(--font-serif);
-    font-size: 1.5rem;
-    font-style: italic;
-    color: var(--color-accent);
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 2rem;
-  }
-
-  .nav-links a {
-    color: var(--color-text-muted);
-    text-decoration: none;
-    font-size: 0.875rem;
-    letter-spacing: 0.05em;
-    transition: color 0.2s ease;
-  }
-
-  .nav-links a:hover {
-    color: var(--color-text);
-  }
-
-  /* Hero */
-  .hero {
-    flex: 1;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: 4rem;
-  }
-
-  .hero-content {
-    animation: fadeIn 0.8s ease-out;
-  }
-
-  h1 {
-    font-family: var(--font-serif);
-    font-weight: 400;
-    line-height: 1.1;
-  }
-
-  .line {
-    display: block;
-    font-size: 1.25rem;
-    color: var(--color-text-muted);
-    font-family: var(--font-mono);
-    margin-bottom: 0.5rem;
-    animation: fadeIn 0.6s ease-out 0.2s both;
-  }
-
-  .name {
-    display: block;
-    font-size: clamp(3rem, 8vw, 5.5rem);
-    font-style: italic;
-    animation: fadeIn 0.6s ease-out 0.4s both;
-  }
-
-  .tagline {
-    margin-top: 1.5rem;
-    font-size: 1.125rem;
-    color: var(--color-text-muted);
-    max-width: 400px;
-    animation: fadeIn 0.6s ease-out 0.6s both;
-  }
-
-  .cta {
-    margin-top: 2.5rem;
-    display: flex;
-    gap: 1rem;
-    animation: fadeIn 0.6s ease-out 0.8s both;
-  }
-
-  .btn-primary {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.875rem 1.75rem;
-    background: var(--color-accent);
-    color: var(--color-bg);
-    text-decoration: none;
-    font-size: 0.875rem;
-    font-weight: 500;
-    border-radius: 2px;
-    transition: all 0.2s ease;
-  }
-
-  .btn-primary:hover {
-    background: var(--color-accent-hover);
-    transform: translateY(-2px);
-  }
-
-  .btn-secondary {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.875rem 1.75rem;
-    color: var(--color-text);
-    text-decoration: none;
-    font-size: 0.875rem;
-    transition: color 0.2s ease;
-  }
-
-  .btn-secondary:hover {
-    color: var(--color-accent);
-  }
-
-  /* Hero Visual */
-  .hero-visual {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    animation: fadeIn 1s ease-out 0.4s both;
-  }
-
-  .orbit {
-    position: relative;
-    width: 320px;
-    height: 320px;
-  }
-
-  .planet {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(135deg, var(--color-accent) 0%, #ea580c 100%);
-    border-radius: 50%;
-    box-shadow: 
-      0 0 60px rgba(249, 115, 22, 0.4),
-      inset -8px -8px 20px rgba(0, 0, 0, 0.3);
-  }
-
-  .ring {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border: 1px solid rgba(249, 115, 22, 0.2);
-    border-radius: 50%;
-    animation: pulse 4s ease-in-out infinite;
-  }
-
-  .ring-1 {
-    width: 140px;
-    height: 140px;
-    animation-delay: 0s;
-  }
-
-  .ring-2 {
-    width: 220px;
-    height: 220px;
-    animation-delay: 1s;
-  }
-
-  .ring-3 {
-    width: 300px;
-    height: 300px;
-    animation-delay: 2s;
-  }
-
-  /* Footer */
-  footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2rem 0;
-    font-size: 0.75rem;
-    color: var(--color-text-muted);
-    animation: fadeIn 0.6s ease-out 1s both;
-  }
-
-  .status {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .dot {
-    width: 6px;
-    height: 6px;
-    background: #22c55e;
-    border-radius: 50%;
-    animation: blink 2s ease-in-out infinite;
-  }
-
-  /* Animations */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes pulse {
-    0%, 100% {
-      opacity: 0.3;
-      transform: translate(-50%, -50%) scale(1);
-    }
-    50% {
-      opacity: 0.6;
-      transform: translate(-50%, -50%) scale(1.05);
-    }
-  }
-
-  @keyframes blink {
-    0%, 100% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0.4;
-    }
-  }
-
-  /* Responsive */
-  @media (max-width: 768px) {
-    .hero {
-      grid-template-columns: 1fr;
-      text-align: center;
-    }
-
-    .hero-visual {
-      order: -1;
-    }
-
-    .orbit {
-      width: 240px;
-      height: 240px;
-    }
-
-    .ring-1 { width: 100px; height: 100px; }
-    .ring-2 { width: 160px; height: 160px; }
-    .ring-3 { width: 220px; height: 220px; }
-
-    .planet { width: 40px; height: 40px; }
-
-    .tagline {
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .cta {
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .nav-links {
-      gap: 1rem;
-    }
+  ul li span {
+    font-weight: 300;
+    color: var(--text-300);
+    margin-left: 0.2rem;
   }
 </style>
-

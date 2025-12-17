@@ -1,0 +1,29 @@
+---
+import Avatar from "../components/Avatar.astro";
+import FoundationLayout from "./FoundationLayout.astro";
+
+interface Props {
+  metadata: { title: string; description: string };
+  frontmatter?: { [key: string]: any };
+}
+const { metadata, frontmatter } = Astro.props;
+const title = frontmatter?.title
+  ? `${frontmatter.title} | Rodrigo Fernandes`
+  : metadata.title;
+const description = frontmatter?.description ?? metadata.description;
+---
+
+<FoundationLayout metadata={{ title, description }}>
+  <Fragment slot="head">
+    <link rel="preload" href="/img/avatar.jpg" as="image" />
+    <link rel="shortcut icon" href="/img/favicon.ico" />
+    <link rel="icon" href="/img/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/img/apple-touch-icon.png"
+    />
+  </Fragment>
+  <Avatar src="/img/avatar.jpg" transition:persist />
+  <slot />
+</FoundationLayout>

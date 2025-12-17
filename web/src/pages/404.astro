@@ -1,0 +1,55 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const metadata = {
+  title: "Page not found | Rodrigo Fernandes",
+  description: "Page not found",
+};
+---
+
+<BaseLayout metadata={metadata}>
+  <section>
+    <div>
+      <img
+        src="/img/404-icon.png"
+        alt="404 Error Icon"
+        width={30}
+      />
+      <h1>The page cannot be found</h1>
+    </div>
+    <p>
+      The page you are looking for might have been removed, had its name
+      changed, or is temporarily unavailable.
+    </p>
+    <p>Please try the following:</p>
+    <ul>
+      <li>
+        If you typed the page address in the Address bar, make sure that it is
+        spelled correctly.
+      </li>
+      <li>
+        Open the <a href="/">https://rodrigofernand.es</a> home page, and then look
+        for links to the information you want.
+      </li>
+      <li>Click the Back button to try another link.</li>
+      <li>
+        Click Search to look for more information on the Internet.
+      </li>
+    </ul>
+    <p>
+      HTTP 404 - File not found<br />Internet Explorer
+    </p>
+  </section>
+</BaseLayout>
+
+<style>
+  div {
+    display: flex;
+    align-items: center;
+  }
+
+  h1 {
+    margin: 0;
+    margin-left: 0.75rem;
+  }
+</style>

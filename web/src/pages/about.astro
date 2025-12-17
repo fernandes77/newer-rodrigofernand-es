@@ -1,0 +1,38 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const metadata = {
+  title: "About | Rodrigo Fernandes",
+  description: "Hey, I'm Rodrigo Fernandes. Learn more about me on this page.",
+};
+---
+
+<BaseLayout metadata={metadata}>
+  <section>
+    <h1>About me</h1>
+    <p>
+      Hey, I'm Rodrigo Fernandes. I am a software engineer. I started working on
+      this field in 2020.
+    </p>
+    <p>
+      I enjoy doing this. It's one of the few fields where you can just get
+      started building stuff after reading some documentation online. Wanna
+      build a 3D game for the web? <a
+        href="https://threejs.org/docs/index.html#manual/en/introduction/Creating-a-scene"
+        target="_blank">Here you go</a
+      >. Wanna make a personal site like this one? <a
+        href="https://docs.astro.build/en/tutorial/0-introduction/"
+        target="_blank">I used Astro</a
+      >.
+    </p>
+    <p>
+      Computational power and internet speeds are very accessible worldwide. You
+      can get a laptop, connect it to the internet and now you have as many
+      resources as a developer in Silicon Valley.
+    </p>
+    <p>
+      Other stuff about me: I'm catholic, brazilian, born in 1998 and I'm a
+      Flamengo fan.
+    </p>
+  </section>
+</BaseLayout>
