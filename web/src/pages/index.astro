@@ -3,22 +3,25 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 const metadata = {
   title: "Home | Rodrigo Fernandes",
-  description:
-    "I am Rodrigo Fernandes and this is my webpage. Thanks for stopping by! It is a work in progress.",
+  description: "I am Rodrigo Fernandes and this is my webpage.",
 };
 ---
 
 <BaseLayout metadata={metadata}>
   <section>
     <p>
-      I am Rodrigo Fernandes and this is my webpage. More <a href="/about/">about me</a>.
+      I am Rodrigo Fernandes and this is my webpage. More <a href="/about/"
+        >about me</a
+      >.
     </p>
   </section>
   <section>
     <h2>Projects</h2>
     <ul>
       <li>
-        <a href="https://tabelanutricional.rodrigofernand.es/" target="_blank">Tabela Nutricional</a>
+        <a href="https://tabelanutricional.rodrigofernand.es/" target="_blank"
+          >Tabela Nutricional</a
+        >
         <span>A big table of brazilian nutritional information</span>
       </li>
     </ul>
@@ -27,7 +30,9 @@ const metadata = {
     <h2>Posts</h2>
     <ul>
       <li>
-        <a href="/posts/why-this-site-is-so-simple/">Why this website is so simple</a>
+        <a href="/posts/why-this-site-is-so-simple/"
+          >Why this website is so simple</a
+        >
         <span>My thoughts on complexity on the web</span>
       </li>
     </ul>
