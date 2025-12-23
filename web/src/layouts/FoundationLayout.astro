@@ -1,5 +1,7 @@
 ---
 import "@fontsource/source-serif-4/300.css";
+import "@fontsource/source-serif-4/400.css";
+import "@fontsource/source-serif-4/600.css";
 import CriticalStyles from "../components/CriticalStyles.astro";
 import { ViewTransitions } from "astro:transitions";
 
@@ -49,7 +51,7 @@ const getCanonical = (): string => {
 
 <style is:global>
   :root {
-    --text-300: #ece9e6;
+    --text: #ece9e6;
     --green-lighter: #3eddbb;
     --green-light: #32b498;
     --green-dark: #278e78;
@@ -67,6 +69,7 @@ const getCanonical = (): string => {
 
   body {
     font-size: 1.25rem;
+    font-weight: 400;
     margin: 0;
   }
 
@@ -114,6 +117,7 @@ const getCanonical = (): string => {
   h5,
   h6 {
     line-height: 1.1;
+    font-weight: 600;
   }
 
   a {
@@ -155,7 +159,7 @@ const getCanonical = (): string => {
   }
 
   input::placeholder {
-    color: var(--text-300);
+    color: var(--text);
     font-weight: 300;
     font-family: var(--font);
     font-size: 1rem;

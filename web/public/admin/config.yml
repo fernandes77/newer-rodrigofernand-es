@@ -22,7 +22,7 @@ collections:
           label: "Layout",
           name: "layout",
           widget: "hidden",
-          default: "../../layouts/BaseLayout.astro",
+          default: "../../layouts/PostLayout.astro",
         }
       - { label: "Title", name: "title", widget: "string" }
       - {
