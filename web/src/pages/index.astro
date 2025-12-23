@@ -5,6 +5,13 @@ const metadata = {
   title: "Home | Rodrigo Fernandes",
   description: "I am Rodrigo Fernandes and this is my webpage.",
 };
+
+const posts = await Astro.glob("./posts/*.md");
+const sortedPosts = posts.sort(
+  (a, b) =>
+    new Date(b.frontmatter.pubDate).getTime() -
+    new Date(a.frontmatter.pubDate).getTime()
+);
 ---
 
 <BaseLayout metadata={metadata}>
@@ -29,11 +36,16 @@ const metadata = {
   <section>
     <h2>Posts</h2>
     <ul>
-      <li>
-        <a href="/posts/why-this-site-is-so-simple/"
-          >Why this website is so simple</a
-        >
-      </li>
+      {
+        sortedPosts.map((post) => (
+          <li>
+            <a href={post.url}>{post.frontmatter.title}</a>
+            <span>
+              {new Date(post.frontmatter.pubDate).toLocaleDateString()}
+            </span>
+          </li>
+        ))
+      }
     </ul>
   </section>
   <section>
