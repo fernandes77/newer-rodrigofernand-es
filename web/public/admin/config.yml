@@ -43,7 +43,12 @@ collections:
         widget: "object"
         required: false
         fields:
-          - { label: "URL", name: "url", widget: "image" }
-          - { label: "Alt Text", name: "alt", widget: "string" }
+          - { label: "URL", name: "url", widget: "image", required: false }
+          - {
+              label: "Alt Text",
+              name: "alt",
+              widget: "string",
+              required: false,
+            }
       - { label: "Tags", name: "tags", widget: "list" }
       - { label: "Body", name: "body", widget: "markdown" }
