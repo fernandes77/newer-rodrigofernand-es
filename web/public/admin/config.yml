@@ -3,6 +3,7 @@ backend:
   repo: fernandes77/newer-rodrigofernand-es
   branch: main
   base_url: https://rodrigofernand.es # Your production domain
+  auth_endpoint: api/auth
 
 # Uncomment for local development (run: npx decap-server)
 # local_backend: true
