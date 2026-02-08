@@ -12,9 +12,6 @@ cd ..
 # Backend
 go build -o app .
 
-# Restart
-sudo systemctl restart newer-rodrigofernand-es
-
 echo "Copying systemd service file..."
 sudo cp app.service /etc/systemd/system/newer-rodrigofernand-es.service
 
