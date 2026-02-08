@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-cd /opt/newer-rodrigofernand-es
+cd /srv/newer-rodrigofernand-es
 
 # Frontend
 cd web
